@@ -1,0 +1,46 @@
+{% extends "shop/base.html" %}
+{% block title %}{% if q %}Search: {{ q }}{% else %}Shop all products{% endif %}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container-xl">
+    <span class="eyebrow">The complete boutique</span>
+    <h1>{% if q %}Results for &ldquo;{{ q }}&rdquo;{% else %}ផលិតផលទាំងអស់{% endif %}</h1>
+    <p class="text-muted-lyly mb-0">{{ page.paginator.count }} product{{ page.paginator.count|pluralize }}</p>
+  </div>
+</section>
+
+<div class="container-xl py-4">
+  <form method="get" class="row g-2 align-items-center mb-3">
+    {% if current_category %}<input type="hidden" name="category" value="{{ current_category }}">{% endif %}
+    <div class="col-12 col-md-5 col-lg-4">
+      <div class="input-group">
+        <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+        <input type="search" name="q" value="{{ q }}" class="form-control" placeholder="ស្វែងរក / Search">
+      </div>
+    </div>
+    <div class="col-6 col-md-3 col-lg-3">
+      <select name="type" class="form-select" onchange="this.form.submit()" aria-label="Product type">
+        <option value="">All types</option>
+        {% for t in types %}<option value="{{ t.slug }}" {% if t.slug == current_type %}selected{% endif %}>{{ t.name_en|default:t.name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-6 col-md-3 col-lg-3 ms-md-auto">
+      <select name="sort" class="form-select" onchange="this.form.submit()" aria-label="Sort">
+        {% for key, label in sorts %}<option value="{{ key }}" {% if key == sort %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-auto"><button class="btn btn-primary">Search</button></div>
+  </form>
+
+  <div class="d-flex gap-2 overflow-auto pb-3 mb-3">
+    <a class="filter-pill {% if not current_category %}active{% endif %}" href="?{% if q %}q={{ q|urlencode }}&amp;{% endif %}sort={{ sort }}">All products</a>
+    {% for c in categories %}
+    <a class="filter-pill {% if c.slug == current_category %}active{% endif %}" href="?category={{ c.slug }}{% if q %}&amp;q={{ q|urlencode }}{% endif %}&amp;sort={{ sort }}">{{ c.name }}</a>
+    {% endfor %}
+  </div>
+
+  {% include "shop/_product_grid.html" with products=page.object_list empty_text="No products match your search." %}
+  {% include "shop/_pager.html" %}
+</div>
+{% endblock %}

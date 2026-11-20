@@ -1,0 +1,86 @@
+{% extends "shop/base.html" %}
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container-xl py-5">
+  <h1 class="fw-bold mb-4">Checkout</h1>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <section class="card border p-4 mb-4">
+          <h2 class="h5 mb-3">Customer &amp; delivery</h2>
+          <div class="row g-3">
+            {% include "shop/_field.html" with field=form.name %}
+            {% include "shop/_field.html" with field=form.phone %}
+            {% include "shop/_field.html" with field=form.city %}
+            {% include "shop/_field.html" with field=form.address %}
+            {% include "shop/_field.html" with field=form.note col="col-12" %}
+          </div>
+        </section>
+
+        <section class="card border p-4">
+          <h2 class="h5 mb-3">Payment</h2>
+          {% for radio in form.payment %}
+          <div class="form-check pay-option">
+            {{ radio.tag }}
+            <label class="form-check-label w-100" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+          </div>
+          {% endfor %}
+          {% for error in form.payment.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+          <p class="small text-muted-lyly mb-0 mt-2">For ABA Pay / KHQR and Wing we will contact you with payment details after you order.</p>
+        </section>
+      </div>
+
+      <aside class="col-lg-4">
+        <div class="card border p-4 summary-sticky">
+          <h2 class="h5 mb-3">Order summary</h2>
+          {% for row in lines %}
+          <div class="d-flex justify-content-between small py-1"><span>{{ row.product.name }} &times; {{ row.qty }}</span><span>${{ row.total|floatformat:2 }}</span></div>
+          {% endfor %}
+          <hr>
+          <div class="d-flex justify-content-between py-1"><span>Subtotal</span><span>${{ totals.subtotal|floatformat:2 }}</span></div>
+          {% if totals.discount %}
+          <div class="d-flex justify-content-between py-1 text-success"><span>Discount ({{ totals.rate_percent }}%)</span><span>-${{ totals.discount|floatformat:2 }}</span></div>
+          {% endif %}
+          <div class="d-flex justify-content-between py-1"><span>Delivery</span><span id="delivery">Choose city</span></div>
+          <hr>
+          <div class="d-flex justify-content-between fs-5 fw-bold"><span>Total</span><span class="text-primary" id="total">${{ totals.total|floatformat:2 }}</span></div>
+          <button type="submit" class="btn btn-primary btn-lg rounded-pill w-100 mt-3">Place order</button>
+          <a href="{% url 'cart' %}" class="btn btn-link w-100 mt-1">Back to cart</a>
+        </div>
+      </aside>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ rates|json_script:"rates-data" }}
+{{ calc|json_script:"calc-data" }}
+<script>
+  // Show the delivery fee and total as soon as a city is picked.
+  // The server recalculates everything again when the order is placed.
+  (function () {
+    var rates = JSON.parse(document.getElementById('rates-data').textContent);
+    var calc = JSON.parse(document.getElementById('calc-data').textContent);
+    var city = document.getElementById('{{ form.city.id_for_label }}');
+    var delivery = document.getElementById('delivery');
+    var total = document.getElementById('total');
+    var base = parseFloat(calc.subtotal) - parseFloat(calc.discount);
+    function update() {
+      var rate = rates[city.value];
+      if (rate === undefined) {
+        delivery.textContent = 'Choose city';
+        total.textContent = '$' + base.toFixed(2);
+      } else {
+        delivery.textContent = '$' + parseFloat(rate).toFixed(2);
+        total.textContent = '$' + (base + parseFloat(rate)).toFixed(2);
+      }
+    }
+    city.addEventListener('change', update);
+    update();
+  })();
+</script>
+{% endblock %}

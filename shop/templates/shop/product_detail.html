@@ -1,0 +1,62 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block description %}{{ product.description|default:product.name|truncatechars:150 }}{% endblock %}
+
+{% block content %}
+<div class="container-xl py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+    </ol>
+  </nav>
+
+  <div class="row g-4 g-lg-5">
+    <div class="col-md-6">
+      <div class="detail-img ratio ratio-1x1">
+        <img src="{% if product.image_src %}{{ product.image_src }}{% else %}{% static 'img/placeholder.svg' %}{% endif %}"
+             alt="{{ product.name }}"
+             onerror="this.onerror=null;this.src='{% static 'img/placeholder.svg' %}'">
+      </div>
+    </div>
+    <div class="col-md-6">
+      {% if product.brand %}<span class="eyebrow">{{ product.brand }}</span>{% endif %}
+      <h1 class="h2 fw-bold">{{ product.name }}</h1>
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <a href="{{ product.category.get_absolute_url }}" class="badge text-bg-light border">{{ product.category.name }}</a>
+        {% if product.product_type %}<a href="{% url 'product_list' %}?type={{ product.product_type.slug }}" class="badge text-bg-light border">{{ product.product_type.name_en|default:product.product_type.name }}</a>{% endif %}
+      </div>
+      <p class="price fs-3 mb-3">${{ product.price|floatformat:2 }}</p>
+      {% if product.description %}<p class="text-muted-lyly">{{ product.description|linebreaksbr }}</p>{% endif %}
+
+      <form method="post" action="{% url 'cart_add' product.id %}" class="d-flex flex-wrap gap-2 align-items-center my-4">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <label for="qty" class="visually-hidden">Quantity</label>
+        <input type="number" id="qty" name="qty" value="1" min="1" max="{{ max_qty }}" class="form-control" style="width: 90px;">
+        <button class="btn btn-primary btn-lg rounded-pill px-4"><i class="bi bi-cart-plus me-2"></i>Add to cart</button>
+      </form>
+      <form method="post" action="{% url 'wishlist_toggle' product.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button class="btn btn-outline-primary rounded-pill">
+          <i class="bi {% if product.id in wishlist_ids %}bi-heart-fill{% else %}bi-heart{% endif %} me-1"></i>
+          {% if product.id in wishlist_ids %}Saved to wishlist{% else %}Add to wishlist{% endif %}
+        </button>
+      </form>
+
+      <ul class="list-unstyled small text-muted-lyly mt-4 mb-0">
+        <li><i class="bi bi-truck me-2"></i>Delivery across Cambodia</li>
+        <li><i class="bi bi-cash-coin me-2"></i>Cash on delivery, ABA Pay or Wing</li>
+      </ul>
+    </div>
+  </div>
+
+  {% if related %}
+  <h2 class="h4 fw-bold mt-5 mb-3">You may also like</h2>
+  {% include "shop/_product_grid.html" with products=related %}
+  {% endif %}
+</div>
+{% endblock %}

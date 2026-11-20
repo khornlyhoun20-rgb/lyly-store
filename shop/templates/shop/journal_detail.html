@@ -1,0 +1,14 @@
+{% extends "shop/base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block description %}{{ article.excerpt }}{% endblock %}
+
+{% block content %}
+<article class="container py-5" style="max-width: 760px;">
+  <a href="{% url 'journal_list' %}" class="small"><i class="bi bi-arrow-left"></i> All articles</a>
+  {% if article.tag %}<span class="eyebrow mt-3">{{ article.tag }}</span>{% endif %}
+  <h1 class="fw-bold mb-3">{{ article.title }}</h1>
+  <p class="text-muted-lyly small">{{ article.created_at|date:"j F Y" }}</p>
+  {% if article.image_url %}<img src="{{ article.image_url }}" alt="" class="img-fluid rounded-4 mb-4 w-100" style="max-height:380px;object-fit:cover;">{% endif %}
+  {% for p in paragraphs %}<p>{{ p }}</p>{% endfor %}
+</article>
+{% endblock %}

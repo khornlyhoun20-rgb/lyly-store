@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% block title %}Customer reviews{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container-xl">
+    <span class="eyebrow">Real results</span>
+    <h1>Customer Reviews</h1>
+    {% if average %}<p class="mb-0"><span class="stars"><i class="bi bi-star-fill"></i></span> <strong>{{ average|floatformat:1 }}</strong> average from {{ reviews|length }} review{{ reviews|length|pluralize }}</p>{% endif %}
+  </div>
+</section>
+
+<div class="container-xl py-5">
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="row g-3">
+        {% for r in reviews %}
+        <div class="col-md-6">
+          <div class="card h-100 p-3 border">
+            <div class="stars mb-2">{% for s in r.stars %}<i class="bi bi-star-fill"></i>{% endfor %}{% for s in r.empty_stars %}<i class="bi bi-star"></i>{% endfor %}</div>
+            <p class="fst-italic flex-grow-1">&ldquo;{{ r.text }}&rdquo;</p>
+            <div class="fw-bold">&mdash; {{ r.name }}{% if r.location %}<span class="fw-normal text-muted-lyly">, {{ r.location }}</span>{% endif %}</div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="col-12"><p class="text-muted-lyly">No reviews yet &mdash; be the first to write one.</p></div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="card p-4 border">
+        <h2 class="h5 mb-3">Write a review</h2>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="row g-3">
+            {% include "shop/_field.html" with field=form.name col="col-12" %}
+            {% include "shop/_field.html" with field=form.location col="col-md-6" %}
+            {% include "shop/_field.html" with field=form.rating col="col-md-6" %}
+            {% include "shop/_field.html" with field=form.text col="col-12" %}
+            <div class="col-12"><button class="btn btn-primary w-100 rounded-pill">Submit review</button></div>
+          </div>
+          <p class="small text-muted-lyly mt-3 mb-0">Reviews are shown after our team approves them.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

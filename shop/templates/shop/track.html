@@ -1,0 +1,66 @@
+{% extends "shop/base.html" %}
+{% block title %}Track your order{% endblock %}
+
+{% block content %}
+<div class="container py-5" style="max-width: 680px;">
+  <h1 class="h2 fw-bold">Track your order</h1>
+  <p class="text-muted-lyly mb-4">Enter the order number you got after checkout, and the phone number you used.</p>
+
+  <form method="post" class="card border p-4 mb-4" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger py-2">{% for e in form.non_field_errors %}{{ e }}{% endfor %}</div>
+    {% endif %}
+    <div class="row g-3">
+      {% include "shop/_field.html" with field=form.order_number col="col-12" %}
+      {% include "shop/_field.html" with field=form.phone col="col-12" %}
+      <div class="col-12"><button class="btn btn-dark w-100">Check order</button></div>
+    </div>
+  </form>
+
+  {% if order %}
+  <div class="card border p-4 mb-3">
+    <div class="d-flex justify-content-between flex-wrap gap-2">
+      <h2 class="h5 mb-0">Order {{ order.number }}</h2>
+      <span class="fw-bold {% if order.status == 'cancelled' %}text-danger{% else %}text-success{% endif %}">{{ order.get_status_display }}</span>
+    </div>
+    <p class="small text-muted-lyly mb-3">Placed {{ order.created_at|date:"j M Y, H:i" }}</p>
+    {% if order.status == 'cancelled' %}
+    <p class="mb-0">This order was cancelled. Please <a href="{% url 'contact' %}">contact us</a> if you have questions.</p>
+    {% else %}
+    <ul class="timeline-steps">
+      {% for s in order.steps %}
+      <li class="{% if s.done %}done{% endif %} {% if s.now %}now{% endif %}">
+        <div class="dot">{% if s.done %}<i class="bi bi-check"></i>{% endif %}</div>
+        <div><strong>{{ s.label }}</strong>{% if s.done %}<small>{{ s.text }}</small>{% endif %}</div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <div class="card border p-4 mb-3">
+    <h3 class="h6 mb-3">Items</h3>
+    <table class="table table-sm mb-0">
+      <tbody>
+        {% for item in order.items.all %}
+        <tr><td>{{ item.name }} &times; {{ item.quantity }}</td><td class="text-end">${{ item.line_total|floatformat:2 }}</td></tr>
+        {% endfor %}
+        <tr><td>Subtotal</td><td class="text-end">${{ order.subtotal|floatformat:2 }}</td></tr>
+        {% if order.discount %}<tr><td>Discount{% if order.promo_code %} ({{ order.promo_code }}){% endif %}</td><td class="text-end">-${{ order.discount|floatformat:2 }}</td></tr>{% endif %}
+        <tr><td>Delivery</td><td class="text-end">${{ order.shipping|floatformat:2 }}</td></tr>
+        <tr class="fw-bold"><td>Total</td><td class="text-end">${{ order.total|floatformat:2 }}</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card border p-4">
+    <h3 class="h6 mb-2">Delivery</h3>
+    <p class="mb-1">{{ order.name }}</p>
+    <p class="mb-1">{{ order.address }}, {{ order.city }}</p>
+    <p class="mb-1"><span class="text-muted-lyly">Payment:</span> {{ order.get_payment_display }}</p>
+    {% if order.note %}<p class="mb-0"><span class="text-muted-lyly">Note:</span> {{ order.note }}</p>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

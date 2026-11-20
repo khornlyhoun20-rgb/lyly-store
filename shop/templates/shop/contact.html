@@ -1,0 +1,35 @@
+{% extends "shop/base.html" %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container-xl">
+    <span class="eyebrow">Client care</span>
+    <h1>Get in Touch</h1>
+    <p class="text-muted-lyly mb-0">Questions about products or orders? We are happy to help.</p>
+  </div>
+</section>
+
+<div class="container-xl py-5">
+  <div class="row g-5 align-items-center">
+    <div class="col-md-6">
+      <h2 class="h4">Contact us</h2>
+      <p class="text-muted-lyly my-3">Fill out the form or reach us directly for advice on choosing the right skincare for you.</p>
+      <p class="mb-2"><i class="bi bi-envelope me-2 text-primary"></i><strong>Email:</strong> <a href="mailto:{{ STORE.email }}">{{ STORE.email }}</a></p>
+      <p class="mb-2"><i class="bi bi-telephone me-2 text-primary"></i><strong>Phone:</strong> {{ STORE.phone }}</p>
+      <p class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i><strong>Address:</strong> {{ STORE.address }}</p>
+    </div>
+    <div class="col-md-6">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row g-3">
+          {% include "shop/_field.html" with field=form.name col="col-12" %}
+          {% include "shop/_field.html" with field=form.email col="col-12" %}
+          {% include "shop/_field.html" with field=form.message col="col-12" %}
+          <div class="col-12"><button class="btn btn-primary w-100 rounded-pill btn-lg">Send message</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

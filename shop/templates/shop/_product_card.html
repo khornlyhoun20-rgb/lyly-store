@@ -1,0 +1,29 @@
+{% load static %}
+<div class="card product-card h-100 border-0 shadow-sm">
+  <a href="{% url 'product_detail' p.slug %}" class="ratio ratio-1x1 product-img" tabindex="-1" aria-hidden="true">
+    <img src="{% if p.image_src %}{{ p.image_src }}{% else %}{% static 'img/placeholder.svg' %}{% endif %}"
+         alt="{{ p.name }}" loading="lazy"
+         onerror="this.onerror=null;this.src='{% static 'img/placeholder.svg' %}'">
+  </a>
+  <div class="card-body d-flex flex-column p-3">
+    {% if p.brand %}<small class="text-muted-lyly">{{ p.brand }}</small>{% endif %}
+    <h3 class="h6 card-title mb-3"><a href="{% url 'product_detail' p.slug %}">{{ p.name }}</a></h3>
+    <div class="mt-auto d-flex align-items-center justify-content-between">
+      <span class="price">${{ p.price|floatformat:2 }}</span>
+      <div class="d-flex gap-1">
+        <form method="post" action="{% url 'cart_add' p.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <button class="btn btn-primary btn-icon" title="Add to cart" aria-label="Add {{ p.name }} to cart"><i class="bi bi-cart-plus"></i></button>
+        </form>
+        <form method="post" action="{% url 'wishlist_toggle' p.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <button class="btn btn-outline-primary btn-icon btn-heart {% if p.id in wishlist_ids %}active{% endif %}" title="Wishlist" aria-label="Toggle wishlist for {{ p.name }}">
+            <i class="bi {% if p.id in wishlist_ids %}bi-heart-fill{% else %}bi-heart{% endif %}"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

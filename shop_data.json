@@ -1,0 +1,942 @@
+[
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "name": "Skincare",
+    "slug": "skincare",
+    "tagline": "Glow naturally",
+    "description": "Cleansers, toners, serums, sunscreen and masks for every skin type.",
+    "order": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 2,
+  "fields": {
+    "name": "Haircare",
+    "slug": "haircare",
+    "tagline": "Healthy hair care",
+    "description": "Masks, serums and shampoos to repair and nourish damaged hair.",
+    "order": 2
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 3,
+  "fields": {
+    "name": "Makeup",
+    "slug": "makeup",
+    "tagline": "Enhance your glow",
+    "description": "Nourishing makeup enriched with skincare actives for effortless beauty.",
+    "order": 3
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 4,
+  "fields": {
+    "name": "Perfume",
+    "slug": "perfume",
+    "tagline": "Signature scents",
+    "description": "Light, long-lasting fragrances for every day.",
+    "order": 4
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 1,
+  "fields": {
+    "name": "ទឹកជូតមុខ (តូណ័រ)",
+    "name_en": "Toner",
+    "slug": "toner",
+    "icon": "bi-droplet",
+    "order": 1
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 2,
+  "fields": {
+    "name": "ផលិតផលលក់",
+    "name_en": "Best sellers",
+    "slug": "bestsellers",
+    "icon": "bi-star",
+    "order": 2
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 3,
+  "fields": {
+    "name": "ប្រើប្រាស់លាបកាត់សក់",
+    "name_en": "Hair styling",
+    "slug": "hair-styling",
+    "icon": "bi-scissors",
+    "order": 3
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 4,
+  "fields": {
+    "name": "គ្រែមជ្ឈមណ្ឌលសំណើម",
+    "name_en": "Moisturizer",
+    "slug": "moisturizer",
+    "icon": "bi-moisture",
+    "order": 4
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 5,
+  "fields": {
+    "name": "បន្ទះបិទមុន",
+    "name_en": "Sheet mask",
+    "slug": "sheet-mask",
+    "icon": "bi-emoji-smile",
+    "order": 5
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 6,
+  "fields": {
+    "name": "ម៉ាសភ្នែក",
+    "name_en": "Eye mask",
+    "slug": "eye-mask",
+    "icon": "bi-eye",
+    "order": 6
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 7,
+  "fields": {
+    "name": "គ្រែមការពារកំដៅថ្ងៃ",
+    "name_en": "Sunscreen",
+    "slug": "sunscreen",
+    "icon": "bi-sun",
+    "order": 7
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 8,
+  "fields": {
+    "name": "គ្រឿងម៉ែកអាប",
+    "name_en": "Makeup",
+    "slug": "makeup",
+    "icon": "bi-brush",
+    "order": 8
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 9,
+  "fields": {
+    "name": "លាងមុខ",
+    "name_en": "Cleanser",
+    "slug": "cleanser",
+    "icon": "bi-droplet-half",
+    "order": 9
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 10,
+  "fields": {
+    "name": "សេរ៉ូម អេសិន",
+    "name_en": "Serum / essence",
+    "slug": "serum",
+    "icon": "bi-eyedropper",
+    "order": 10
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 11,
+  "fields": {
+    "name": "ម៉ាស",
+    "name_en": "Face mask",
+    "slug": "mask",
+    "icon": "bi-person-bounding-box",
+    "order": 11
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 12,
+  "fields": {
+    "name": "លាងសំអាតម៉ែកអាប",
+    "name_en": "Makeup remover",
+    "slug": "makeup-remover",
+    "icon": "bi-wind",
+    "order": 12
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 13,
+  "fields": {
+    "name": "ប្រអប់បំពេញ",
+    "name_en": "Refills",
+    "slug": "refill",
+    "icon": "bi-arrow-repeat",
+    "order": 13
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 14,
+  "fields": {
+    "name": "សំឡីជូតមុខ",
+    "name_en": "Cotton pads",
+    "slug": "cotton",
+    "icon": "bi-cloud",
+    "order": 14
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 15,
+  "fields": {
+    "name": "អាហារបំប៉ន",
+    "name_en": "Supplements",
+    "slug": "supplements",
+    "icon": "bi-capsule",
+    "order": 15
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 16,
+  "fields": {
+    "name": "ផលិតផលស្បែកក្បាល",
+    "name_en": "Scalp care",
+    "slug": "scalp-care",
+    "icon": "bi-person",
+    "order": 16
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 17,
+  "fields": {
+    "name": "ផលិតផលថែរក្សាភ្នែក",
+    "name_en": "Eye care",
+    "slug": "eye-care",
+    "icon": "bi-eye-fill",
+    "order": 17
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 18,
+  "fields": {
+    "name": "បរិក្ខារសម្ផស្ស",
+    "name_en": "Beauty tools",
+    "slug": "beauty-tools",
+    "icon": "bi-tools",
+    "order": 18
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 19,
+  "fields": {
+    "name": "ទឹកជូតញើស",
+    "name_en": "Deodorant",
+    "slug": "deodorant",
+    "icon": "bi-wind",
+    "order": 19
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 20,
+  "fields": {
+    "name": "គ្រែម សេរ៉ូមបន្ទបន្ទាន់",
+    "name_en": "Ampoule",
+    "slug": "ampoule",
+    "icon": "bi-lightning",
+    "order": 20
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 21,
+  "fields": {
+    "name": "ផលិតផលថែរក្សារាងកាយ",
+    "name_en": "Body care",
+    "slug": "body-care",
+    "icon": "bi-heart",
+    "order": 21
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 22,
+  "fields": {
+    "name": "ទឹកអនាម័យ",
+    "name_en": "Feminine wash",
+    "slug": "feminine-wash",
+    "icon": "bi-droplet",
+    "order": 22
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 23,
+  "fields": {
+    "name": "គ្រឿងសំអាង",
+    "name_en": "Cosmetics",
+    "slug": "cosmetics",
+    "icon": "bi-palette",
+    "order": 23
+  }
+},
+{
+  "model": "shop.producttype",
+  "pk": 24,
+  "fields": {
+    "name": "ផលិតផលថែទាំមាត់ ធ្មេញ",
+    "name_en": "Oral care",
+    "slug": "oral-care",
+    "icon": "bi-emoji-laughing",
+    "order": 24
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "name": "Torriden Cleansing Water",
+    "slug": "torriden-cleansing-water",
+    "brand": "Torriden",
+    "category": 1,
+    "product_type": 12,
+    "description": "",
+    "price": "10.50",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlp8MK00uDT6aA9Dyw69G4rxjYhlj9jq6W-nyv3ED30WWKbXLCSKAuUrI&s=10",
+    "section": "bestseller",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.285Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "name": "Abib Cleansing Foam",
+    "slug": "abib-cleansing-foam",
+    "brand": "Abib",
+    "category": 1,
+    "product_type": 9,
+    "description": "",
+    "price": "9.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpKEc9_Q2nKI5LDOaEOEH_lOEQJEcaC1-uqYaZhQYACLlavCwYXqxMi9vc&s=10",
+    "section": "bestseller",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.287Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "name": "aloe vera mask",
+    "slug": "natural-skin-facial-mask",
+    "brand": "Natural Skin",
+    "category": 1,
+    "product_type": 11,
+    "description": "smooth skin for the full day",
+    "price": "5.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUSZo5sbrK08wY1C-ysBSDqRuvMNr9MB3YjCNkfrX7k1rVpbwvllpzqNMr&s=10",
+    "section": "bestseller",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.287Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "name": "ស្ករបករោមទន្សាយ",
+    "slug": "rabbit-sugar-wax",
+    "brand": "",
+    "category": 1,
+    "product_type": 21,
+    "description": "",
+    "price": "8.50",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH7SMnFjHQjpykiJ6sX5ShnVSXtC6S7-sXyiyacpUX2zcVko34w5JTaWKF&s=10",
+    "section": "popular",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.288Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "name": "Weyoung Cleansing Water",
+    "slug": "weyoung-cleansing-water",
+    "brand": "Weyoung",
+    "category": 1,
+    "product_type": 12,
+    "description": "",
+    "price": "18.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMHPTYJ4VBT3jcyDPlZwdceLh_HrWfA6Uai7xIy0yjUfpaCMdbWfaqK4s&s=10",
+    "section": "popular",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.289Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "name": "Gik Facial Mask",
+    "slug": "gik-facial-mask",
+    "brand": "Gik",
+    "category": 1,
+    "product_type": 11,
+    "description": "",
+    "price": "5.50",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2cApySAJzLSYdzGkzLCwDQ3VbFlX6_-DXc-uVKe00RJFmRgxTNuW2vA&s=10",
+    "section": "popular",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.290Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 7,
+  "fields": {
+    "name": "OHBT Shower Oil",
+    "slug": "ohbt-shower-oil",
+    "brand": "OHBT",
+    "category": 1,
+    "product_type": 21,
+    "description": "",
+    "price": "5.60",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdFzT4hJIHeurzUdq_uENQqFWeqZBiIX5b_L2Xfk_dPqSqiBF_54xw9j0&s=10",
+    "section": "new",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.291Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 8,
+  "fields": {
+    "name": "The Ordinary Toner",
+    "slug": "the-ordinary-toner",
+    "brand": "The Ordinary",
+    "category": 1,
+    "product_type": 1,
+    "description": "",
+    "price": "20.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK42W9m6jcC9w5eXdjM3Rn1V6swKGhSxewHSYNqYEpSw&s",
+    "section": "new",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.292Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 9,
+  "fields": {
+    "name": "Vitamin E",
+    "slug": "vitamin-e",
+    "brand": "",
+    "category": 1,
+    "product_type": null,
+    "description": "",
+    "price": "18.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_mp6lS66T4o29ozfhQ-Mzi7uJjcNZefVxi0a1N14BToYqAxB_Sn-McKBR&s=10",
+    "section": "new",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.294Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 10,
+  "fields": {
+    "name": "11SKINCARE SPF 50 SUN CREAM",
+    "slug": "11skincare-spf-50-sun-cream",
+    "brand": "11SKINCARE",
+    "category": 1,
+    "product_type": 7,
+    "description": "",
+    "price": "6.10",
+    "image": "",
+    "image_url": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=80",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.295Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 11,
+  "fields": {
+    "name": "11 skin elevenskincare foam",
+    "slug": "11-skin-foam",
+    "brand": "11SKINCARE",
+    "category": 1,
+    "product_type": 9,
+    "description": "",
+    "price": "5.50",
+    "image": "",
+    "image_url": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.296Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 12,
+  "fields": {
+    "name": "11 skin eleven skincare uv spf 50",
+    "slug": "11-skin-uv-spf-50",
+    "brand": "11SKINCARE",
+    "category": 1,
+    "product_type": 7,
+    "description": "",
+    "price": "7.20",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWOXH6uLWfiXqDRs1RVV3OoRxkXq6PgJr53YsGIMwZ-MEj-cMhIs_FtJbj&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.297Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 13,
+  "fields": {
+    "name": "Torriden Dive-In Hydrating Serum",
+    "slug": "torriden-dive-in-serum",
+    "brand": "Torriden",
+    "category": 1,
+    "product_type": 10,
+    "description": "",
+    "price": "14.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1dIIKgCGwmIvWTMcxdx60wTngHHtMlncE2eDS2F6oBaXozNE1ajcRUTQi&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.298Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 14,
+  "fields": {
+    "name": "Celestial Rose Serum",
+    "slug": "celestial-rose-serum",
+    "brand": "",
+    "category": 1,
+    "product_type": 10,
+    "description": "",
+    "price": "88.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4JlQeSfqc3PYiJDF51cojT_Kb5XyAGYK3BWcTi9X_uaPfxJyntiDPIGc&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.298Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 15,
+  "fields": {
+    "name": "Velvet Nectar Moisturizer",
+    "slug": "velvet-nectar-moisturizer",
+    "brand": "",
+    "category": 1,
+    "product_type": 4,
+    "description": "",
+    "price": "76.00",
+    "image": "",
+    "image_url": "https://m.media-amazon.com/images/I/61Nof0PaKVL.jpg",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.300Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 16,
+  "fields": {
+    "name": "DOVE BODY WASH KOREA 1000g #REBALANCING PEACH",
+    "slug": "dove-body-wash-peach",
+    "brand": "Dove",
+    "category": 1,
+    "product_type": 21,
+    "description": "",
+    "price": "6.30",
+    "image": "",
+    "image_url": "https://down-ph.img.susercontent.com/file/ph-11134207-820l9-mv0mpulelxqh96",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.301Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 17,
+  "fields": {
+    "name": "Fino Hair Mask Premium Touch",
+    "slug": "fino-hair-mask",
+    "brand": "Fino",
+    "category": 2,
+    "product_type": null,
+    "description": "Intensive Repair Treatment 230g. Deeply nourishes and restores damaged hair.",
+    "price": "8.50",
+    "image": "",
+    "image_url": "https://japanesetaste.in/cdn/shop/files/Fino-Hair-Mask-Premium-Touch-Intensive-Repair-Treatment-230g-1-2026-02-05T05_50_01.813Z.jpg?v=1770270661&width=1946",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.303Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 18,
+  "fields": {
+    "name": "Keana Nadeshiko Rice Pack",
+    "slug": "keana-nadeshiko-rice-pack",
+    "brand": "Keana",
+    "category": 2,
+    "product_type": null,
+    "description": "Mask Repair Treatment. Gives a glowing shine to your hair.",
+    "price": "12.00",
+    "image": "",
+    "image_url": "https://m.media-amazon.com/images/I/41WcVDB1ZtL.jpg",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.304Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 19,
+  "fields": {
+    "name": "Biomimetic Serum",
+    "slug": "biomimetic-serum",
+    "brand": "",
+    "category": 2,
+    "product_type": null,
+    "description": "Serum Treatment 500ml. Nourishes and helps damaged hair.",
+    "price": "18.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYY07qSQ0TD5fuM3VmiyeBQE7U2GITWUKsTz68GZTmKnLum3_OpyWyejwc&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.305Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 20,
+  "fields": {
+    "name": "Monday Hair Shampoo",
+    "slug": "monday-hair-shampoo",
+    "brand": "Monday",
+    "category": 2,
+    "product_type": null,
+    "description": "Moisture shampoo for damaged hair.",
+    "price": "9.50",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdFFTYzZ2MY7O7hyrZ5QZBY-QvGOLdUhWglKglfjuRFuVHSXi9bP9qrjpc&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.306Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 21,
+  "fields": {
+    "name": "Silk Radiance Foundation",
+    "slug": "silk-radiance-foundation",
+    "brand": "",
+    "category": 3,
+    "product_type": 8,
+    "description": "",
+    "price": "54.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9rYZc8TYwl6iacddsnMSmT_oqZIMzaC0Z3_SdhbIsPDcwraklBKJir2sg&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.307Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 22,
+  "fields": {
+    "name": "Velvet Matte Lip Tint",
+    "slug": "velvet-matte-lip-tint",
+    "brand": "",
+    "category": 3,
+    "product_type": 8,
+    "description": "",
+    "price": "32.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIW6lYB673r8eMrszlyJ7W-kvxvhOiCNJio755-nXeab9ba_f2-zg4FgI&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.308Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 23,
+  "fields": {
+    "name": "Dewy Gold Cheek Serum",
+    "slug": "dewy-gold-cheek-serum",
+    "brand": "",
+    "category": 3,
+    "product_type": 8,
+    "description": "",
+    "price": "46.00",
+    "image": "",
+    "image_url": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.309Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 24,
+  "fields": {
+    "name": "CLARINS LIP STAIN 013",
+    "slug": "clarins-lip-stain-013",
+    "brand": "Clarins",
+    "category": 3,
+    "product_type": 8,
+    "description": "",
+    "price": "10.00",
+    "image": "",
+    "image_url": "https://www.taxfree-heinemann.dk/medias/527Wx527H-null?context=bWFzdGVyfGltYWdlc3wzMjkzMnxpbWFnZS9qcGVnfGFHRTVMMmhpT0M4eE1qRXpOak13T1RVMU5USXpNQzgxTWpkWGVEVXlOMGhmYm5Wc2JBfDJjNzU0ZmE0NTYyYjMwNDc2NzU2OTczOTgzNmYzZmJhOGU0MGZkNWQzZmJmMjNiZGQxNWVjZjMzMmJkZGMxYWU&v=1747081893652",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.310Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 25,
+  "fields": {
+    "name": "Jasmine Mist Body Perfume",
+    "slug": "jasmine-mist-body-perfume",
+    "brand": "",
+    "category": 4,
+    "product_type": null,
+    "description": "The smell that can't be forget",
+    "price": "12.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcg6uXgwdLtTN0upnIHSiZnZQtMNjtO1PACMnyMFEs8KbndmyBjw5GTf0&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.311Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 26,
+  "fields": {
+    "name": "Rose Musk Eau de Parfum 50ml",
+    "slug": "rose-musk-eau-de-parfum",
+    "brand": "",
+    "category": 4,
+    "product_type": null,
+    "description": "Sample product - edit or delete in the admin.",
+    "price": "24.00",
+    "image": "",
+    "image_url": "https://m.media-amazon.com/images/I/61KJC4GmfGL._AC_UF1000,1000_QL80_.jpg",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.313Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 27,
+  "fields": {
+    "name": "Fresh Citrus Cologne",
+    "slug": "fresh-citrus-cologne",
+    "brand": "",
+    "category": 4,
+    "product_type": null,
+    "description": "Sample product - edit or delete in the admin.",
+    "price": "15.00",
+    "image": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToYb1OHYLQfxdQLURSTBZDXS_L-7jRiMEpAWEd7pTQEEnusN47Z4fXmQE&s=10",
+    "section": "",
+    "is_active": true,
+    "created_at": "2026-11-20T13:18:05.315Z"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 1,
+  "fields": {
+    "number": "LY-1684071",
+    "name": "khorn lyhoun",
+    "phone": "1234567890",
+    "city": "Phnom Penh",
+    "address": "5688",
+    "note": "",
+    "payment": "cod",
+    "status": "received",
+    "promo_code": "",
+    "subtotal": "5.60",
+    "discount": "0.00",
+    "shipping": "1.50",
+    "total": "7.10",
+    "created_at": "2026-11-20T13:22:13.817Z"
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 7,
+    "name": "OHBT Shower Oil",
+    "price": "5.60",
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.review",
+  "pk": 1,
+  "fields": {
+    "name": "Sreyleak",
+    "location": "Phnom Penh",
+    "rating": 5,
+    "text": "My skin has never felt so soft. The products are genuine and the service is really friendly.",
+    "is_approved": true,
+    "created_at": "2026-11-20T13:18:05.324Z"
+  }
+},
+{
+  "model": "shop.review",
+  "pk": 2,
+  "fields": {
+    "name": "Malis",
+    "location": "Siem Reap",
+    "rating": 5,
+    "text": "The hair mask repaired my dry hair in just a few weeks. I will definitely order again.",
+    "is_approved": true,
+    "created_at": "2026-11-20T13:18:05.326Z"
+  }
+},
+{
+  "model": "shop.review",
+  "pk": 3,
+  "fields": {
+    "name": "Dara",
+    "location": "Battambang",
+    "rating": 5,
+    "text": "Fast delivery and great packaging. It is easy to find exactly what I need here.",
+    "is_approved": true,
+    "created_at": "2026-11-20T13:18:05.326Z"
+  }
+},
+{
+  "model": "shop.review",
+  "pk": 4,
+  "fields": {
+    "name": "khorn lyhoun",
+    "location": "",
+    "rating": 5,
+    "text": "very good",
+    "is_approved": false,
+    "created_at": "2026-11-20T13:20:45.303Z"
+  }
+},
+{
+  "model": "shop.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "Wild Rosehip Oil",
+    "description": "Rich in essential fatty acids and Vitamin C to brighten and nourish skin layers.",
+    "order": 1
+  }
+},
+{
+  "model": "shop.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "Plant Hyaluronic Acid",
+    "description": "Attracts up to 1000x its weight in water to deeply hydrate skin tissue.",
+    "order": 2
+  }
+},
+{
+  "model": "shop.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "Niacinamide",
+    "description": "A form of vitamin B3 that helps support the skin barrier and even out the look of skin tone.",
+    "order": 3
+  }
+},
+{
+  "model": "shop.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "Centella Asiatica",
+    "description": "A calming plant extract often used in products for sensitive or easily irritated skin.",
+    "order": 4
+  }
+},
+{
+  "model": "shop.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "Vitamin E",
+    "description": "An antioxidant that helps protect skin from daily environmental stress and keeps it feeling soft.",
+    "order": 5
+  }
+},
+{
+  "model": "shop.ingredient",
+  "pk": 6,
+  "fields": {
+    "name": "Rice Extract",
+    "description": "Used in masks and hair treatments to leave skin and hair feeling smooth with a healthy shine.",
+    "order": 6
+  }
+},
+{
+  "model": "shop.article",
+  "pk": 1,
+  "fields": {
+    "title": "5 Steps to Rebuild Your Skin Barrier",
+    "slug": "5-steps-to-rebuild-your-skin-barrier",
+    "tag": "Skincare routine",
+    "excerpt": "Learn how to repair damaged skin and seal in deep moisture.",
+    "body": "A healthy skin barrier keeps moisture in and irritation out. When it is damaged, skin can feel tight, dry, red or stingy. These five simple steps help it recover.\n\n1. Cleanse gently. Use a mild, low-foam cleanser once or twice a day and skip very hot water.\n\n2. Hydrate. Apply a hydrating toner or serum with ingredients such as hyaluronic acid while skin is still damp.\n\n3. Moisturize. A cream with soothing, barrier-friendly ingredients helps seal in that moisture.\n\n4. Protect. Use sunscreen every morning. Sun exposure slows skin repair.\n\n5. Go easy on actives. Pause strong exfoliating acids and retinoids until your skin feels comfortable again, then reintroduce them one at a time.\n\nIf irritation does not improve after a couple of weeks, check in with a dermatologist.",
+    "image_url": "https://images.unsplash.com/photo-1512290900676-26c27500d5b6?auto=format&fit=crop&w=900&q=80",
+    "created_at": "2026-11-20T13:18:05.328Z"
+  }
+}
+]

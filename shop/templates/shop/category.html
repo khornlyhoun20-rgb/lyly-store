@@ -1,0 +1,43 @@
+{% extends "shop/base.html" %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block description %}{{ category.description }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container-xl">
+    {% if category.tagline %}<span class="eyebrow">{{ category.tagline }}</span>{% endif %}
+    <h1>{{ category.name }}</h1>
+    <p class="text-muted-lyly mb-0">{{ category.description }}</p>
+  </div>
+</section>
+
+<div class="container-xl py-4">
+  <div class="alert alert-warning d-flex align-items-center gap-2 py-2" role="status">
+    <i class="bi bi-tag-fill"></i>
+    <div>Save <strong>10%</strong> on everything with code <strong>ALLONSALE</strong> at checkout.</div>
+  </div>
+
+  <div class="row g-4">
+    <aside class="col-lg-3">
+      <h2 class="h6 text-uppercase text-muted-lyly mb-3">Browse by type</h2>
+      <div class="list-group mb-4">
+        <a href="?sort={{ sort }}" class="list-group-item list-group-item-action {% if not current_type %}active{% endif %}">All {{ category.name }}</a>
+        {% for t in types %}
+        <a href="?type={{ t.slug }}&amp;sort={{ sort }}" class="list-group-item list-group-item-action {% if t.slug == current_type %}active{% endif %}">{{ t.name_en|default:t.name }}</a>
+        {% endfor %}
+      </div>
+      <form method="get">
+        {% if current_type %}<input type="hidden" name="type" value="{{ current_type }}">{% endif %}
+        <label class="form-label small fw-semibold" for="sortSel">Sort by</label>
+        <select id="sortSel" name="sort" class="form-select" onchange="this.form.submit()">
+          {% for key, label in sorts %}<option value="{{ key }}" {% if key == sort %}selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+      </form>
+    </aside>
+    <div class="col-lg-9">
+      {% include "shop/_product_grid.html" with products=page.object_list empty_text="No products in this section yet." %}
+      {% include "shop/_pager.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}

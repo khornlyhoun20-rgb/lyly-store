@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+{% block title %}Product types{% endblock %}
+
+{% block content %}
+<div class="container-xl py-5">
+  <h1 class="text-center fw-bold mb-5" style="color:#cc9900">ប្រភេទផលិតផល</h1>
+  <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-4">
+    {% for t in types %}
+    <div class="col">
+      <a class="type-item d-block" href="{% url 'product_list' %}?type={{ t.slug }}">
+        <div class="type-avatar"><i class="bi {{ t.icon }}"></i></div>
+        <span class="small fw-medium">{{ t.name }}</span>
+        {% if t.name_en %}<small>{{ t.name_en }}</small>{% endif %}
+        <small>{{ t.product_count }} item{{ t.product_count|pluralize }}</small>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

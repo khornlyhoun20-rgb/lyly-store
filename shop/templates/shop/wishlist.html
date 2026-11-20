@@ -1,0 +1,9 @@
+{% extends "shop/base.html" %}
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+<div class="container-xl py-5">
+  <h1 class="fw-bold mb-4">Your wishlist</h1>
+  {% include "shop/_product_grid.html" with empty_text="Your wishlist is empty. Tap the heart on any product to save it here." %}
+</div>
+{% endblock %}

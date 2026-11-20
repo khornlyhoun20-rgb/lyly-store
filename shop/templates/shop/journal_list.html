@@ -1,0 +1,30 @@
+{% extends "shop/base.html" %}
+{% block title %}Journal &amp; guides{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container-xl">
+    <span class="eyebrow">The LYLY journal</span>
+    <h1>Beauty Rituals &amp; Guides</h1>
+  </div>
+</section>
+<div class="container-xl py-5">
+  <div class="row g-4">
+    {% for a in articles %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border overflow-hidden" style="border-radius:1rem;">
+        {% if a.image_url %}<img src="{{ a.image_url }}" class="card-img-top" alt="" style="height:220px;object-fit:cover;" loading="lazy">{% endif %}
+        <div class="card-body p-4">
+          {% if a.tag %}<span class="small fw-semibold text-uppercase text-primary">{{ a.tag }}</span>{% endif %}
+          <h2 class="h5 my-2">{{ a.title }}</h2>
+          <p class="text-muted-lyly">{{ a.excerpt }}</p>
+          <a href="{{ a.get_absolute_url }}" class="fw-semibold">Read article &rarr;</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center text-muted-lyly">No articles yet.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

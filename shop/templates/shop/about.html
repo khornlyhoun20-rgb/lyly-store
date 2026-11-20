@@ -1,0 +1,126 @@
+{% extends "shop/base.html" %}
+{% block title %}About us{% endblock %}
+
+{% block content %}
+<section class="page-hero py-5">
+  <div class="container text-center" style="max-width: 780px;">
+    <span class="eyebrow">Our philosophy</span>
+    <h1 class="display-5 fw-bold">Crafted with <span class="text-primary">Conscience</span> &amp; Care</h1>
+    <p class="text-muted-lyly fs-5">Trusted skincare, haircare and beauty essentials, chosen carefully so you can glow with confidence every single day.</p>
+    <div class="d-flex gap-2 justify-content-center flex-wrap">
+      <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg rounded-pill px-4"><i class="bi bi-bag me-2"></i>Shop now</a>
+      <a href="#story" class="btn btn-outline-primary btn-lg rounded-pill px-4">Our story</a>
+    </div>
+  </div>
+</section>
+
+<section class="container-xl py-5" id="story">
+  <div class="row g-5 align-items-center">
+    <div class="col-lg-6">
+      <span class="eyebrow">Who we are</span>
+      <h2 class="section-title mb-3">Beauty you can trust, from source to shelf</h2>
+      <p class="lead">Founded with a passion for quality beauty care, LYLY Store brings you high-performance skincare and cosmetic items with clear origins and certified safety standards.</p>
+      <p class="text-muted-lyly">Every product we offer is selected to ensure premium quality, helping you maintain a healthy, radiant glow safely and affordably.</p>
+      <ul class="list-unstyled mt-3">
+        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic products from verified brands</li>
+        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Honest advice for every skin and hair type</li>
+        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Fair prices, no compromise on quality</li>
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <div class="ratio ratio-4x3 rounded-4 overflow-hidden shadow" style="background:linear-gradient(135deg,#f6ead5,#e8d3a8)">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="LYLY Store skincare products" style="object-fit:cover" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container-xl py-5">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3"><div class="stat-number">5,000+</div><div>Happy customers</div></div>
+      <div class="col-6 col-md-3"><div class="stat-number">300+</div><div>Products</div></div>
+      <div class="col-6 col-md-3"><div class="stat-number">40+</div><div>Trusted brands</div></div>
+      <div class="col-6 col-md-3"><div class="stat-number">4.9 <i class="bi bi-star-fill fs-4"></i></div><div>Average rating</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="container-xl py-5">
+  <div class="text-center mb-5">
+    <span class="eyebrow">What we stand for</span>
+    <h2 class="section-title">Our core values</h2>
+    <p class="text-muted-lyly">The principles that guide every product we choose and every customer we serve.</p>
+  </div>
+  <div class="row g-4">
+    <div class="col-sm-6 col-lg-3"><div class="feature-card text-center"><i class="bi bi-leaf"></i><h3 class="h6 mt-2">100% Organic</h3><p class="small text-muted-lyly mb-0">Ethically sourced ingredients that are safe for daily use.</p></div></div>
+    <div class="col-sm-6 col-lg-3"><div class="feature-card text-center"><i class="bi bi-prescription2"></i><h3 class="h6 mt-2">Clinically tested</h3><p class="small text-muted-lyly mb-0">Proven efficacy backed by strict safety standards.</p></div></div>
+    <div class="col-sm-6 col-lg-3"><div class="feature-card text-center"><i class="bi bi-emoji-smile"></i><h3 class="h6 mt-2">Cruelty-free</h3><p class="small text-muted-lyly mb-0">Never tested on animals. Kind to you and to the planet.</p></div></div>
+    <div class="col-sm-6 col-lg-3"><div class="feature-card text-center"><i class="bi bi-heart"></i><h3 class="h6 mt-2">Made with care</h3><p class="small text-muted-lyly mb-0">Every item is checked by our team before it reaches you.</p></div></div>
+  </div>
+</section>
+
+<section style="background:#fcf8f2">
+  <div class="container py-5" style="max-width: 760px;">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Our journey</span>
+      <h2 class="section-title">How LYLY Store grew</h2>
+    </div>
+    <ul class="timeline-steps">
+      <li class="done"><div class="dot"><i class="bi bi-check"></i></div><div><strong class="text-primary">2022 &middot; The idea</strong><small>LYLY Store starts as a small passion project to share safe, quality skincare with friends and family.</small></div></li>
+      <li class="done"><div class="dot"><i class="bi bi-check"></i></div><div><strong class="text-primary">2023 &middot; First online store</strong><small>We launch our website and welcome our first thousand customers.</small></div></li>
+      <li class="done"><div class="dot"><i class="bi bi-check"></i></div><div><strong class="text-primary">2025 &middot; Haircare &amp; makeup</strong><small>We expand beyond skincare into haircare, makeup and perfume.</small></div></li>
+      <li class="done"><div class="dot"><i class="bi bi-check"></i></div><div><strong class="text-primary">2026 &middot; Growing together</strong><small>Thousands of happy customers and a bigger range of trusted brands than ever.</small></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="container-xl py-5">
+  <div class="text-center mb-5">
+    <span class="eyebrow">Why LYLY</span>
+    <h2 class="section-title">Why shop with us</h2>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4"><div class="feature-card d-flex gap-3"><i class="bi bi-shield-check"></i><div><h3 class="h6">100% Authentic</h3><p class="small text-muted-lyly mb-0">Every product comes from verified suppliers.</p></div></div></div>
+    <div class="col-md-6 col-lg-4"><div class="feature-card d-flex gap-3"><i class="bi bi-truck"></i><div><h3 class="h6">Fast delivery</h3><p class="small text-muted-lyly mb-0">Quick and careful delivery to your door.</p></div></div></div>
+    <div class="col-md-6 col-lg-4"><div class="feature-card d-flex gap-3"><i class="bi bi-chat-heart"></i><div><h3 class="h6">Expert advice</h3><p class="small text-muted-lyly mb-0">Not sure what suits you? We will help you choose.</p></div></div></div>
+    <div class="col-md-6 col-lg-4"><div class="feature-card d-flex gap-3"><i class="bi bi-arrow-counterclockwise"></i><div><h3 class="h6">Easy returns</h3><p class="small text-muted-lyly mb-0">Not happy? Contact us and we will make it right.</p></div></div></div>
+    <div class="col-md-6 col-lg-4"><div class="feature-card d-flex gap-3"><i class="bi bi-tags"></i><div><h3 class="h6">Fair prices</h3><p class="small text-muted-lyly mb-0">Premium quality at honest, affordable prices.</p></div></div></div>
+    <div class="col-md-6 col-lg-4"><div class="feature-card d-flex gap-3"><i class="bi bi-headset"></i><div><h3 class="h6">Friendly support</h3><p class="small text-muted-lyly mb-0">We are always here to answer your questions.</p></div></div></div>
+  </div>
+</section>
+
+{% if testimonials %}
+<section style="background:#fcf8f2">
+  <div class="container-xl py-5">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Reviews</span>
+      <h2 class="section-title">What our customers say</h2>
+    </div>
+    <div class="row g-4">
+      {% for r in testimonials %}
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-4" style="border-radius:1rem;">
+          <div class="stars mb-2">{% for s in r.stars %}<i class="bi bi-star-fill"></i>{% endfor %}</div>
+          <p class="text-muted-lyly flex-grow-1">{{ r.text }}</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="avatar">{{ r.name|slice:":1"|upper }}</div>
+            <div><strong class="d-block lh-sm">{{ r.name }}</strong>{% if r.location %}<small class="text-muted-lyly">{{ r.location }}</small>{% endif %}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4"><a href="{% url 'reviews' %}" class="btn btn-outline-primary rounded-pill px-4">All reviews</a></div>
+  </div>
+</section>
+{% endif %}
+
+<section class="container-xl pt-5">
+  <div class="cta-box text-center p-5">
+    <h2 class="fw-bold">Ready to find your glow?</h2>
+    <p class="mb-4">Explore our products and discover what works for you.</p>
+    <a href="{% url 'product_list' %}" class="btn btn-light btn-lg rounded-pill px-4 text-primary fw-semibold">Explore products <i class="bi bi-arrow-right ms-1"></i></a>
+  </div>
+</section>
+{% endblock %}
